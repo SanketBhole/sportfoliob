@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Animate CSS Link -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+	<!-- Hover CSS Link -->
+	<link rel="stylesheet" type="text/css" href="css/hover.css">
+
+    <!-- Style CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+	<!-- Fontawesome Icons CSS Link -->
+	<link rel="stylesheet" type="text/css" href="fa-icon_v6_pro/css/all.css">
+
+    <!-- Linear Icons Html -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+	<!-- Site Logo -->
+    <link rel="icon" type="image/jpg" href="images/favicon.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /*CSS For Body*/
+        body{
+            background-image: url(images/headback.jpg);
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			background-size: cover;
+            transition: 0.5s;
+        }
+        @media screen and (max-width: 650px){
+            body{
+                background-image: url(images/mobileback.jpg);
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+                transition: 0.5s;
+            }
+        }
+        /*CSS For Body End*/
+
+
+        /*CSS For Side Bar*/
+        #sidebar{
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(37, 37, 37);
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+        /*CSS for Close Button*/
+        .closebtn{
+            display: none;
+        }
+        #sidebar hr{
+            height:0.5px;
+            border-width:0;
+            color:gray;
+            background-color:gray
+        }
+        .image{
+            background-image: url(images/imgback.jpg);
+            background-repeat:no-repeat;
+            background-position: center center;
+            background-size:cover; 
+            z-index: 0;
+            position: relative;
+        }
+        .img{
+            width: 140px;
+            height: 140px;
+            display: block;
+        }
+        #sidebar a{
+            color: white;
+            font-size: 20px;
+        }
+        .img-responsive{
+			max-width: 100%;
+			height: auto;
+		}
+        .overlay {
+            position: absolute; 
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5); /* Black see-through */
+            color: #f1f1f1; 
+            transition: .5s ease;
+            width: 100%;
+            opacity:0;
+            color: white;
+            font-size: 15px;
+          }
+          
+            .image:hover .overlay {
+            opacity: 1;
+          }
+        /*CSS For Sidebar End*/
+
+        
+        /*CSS and Media Queries For Button*/
+        .san{
+            animation: fadeInn 0.70s ease-in; 
+        }
+        @keyframes fadeInn {
+            0% {
+                opacity: 0;
+            }
+        
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @media screen and (min-width: 650px){
+            .san{
+                display: none;
+            }
+        }
+        /*CSS For Button End*/
+        
+        /*Media Queries For Side Bar And Close Button*/
+        @media screen and (max-width: 650px) {
+            #sidebar{
+                height: 100%;
+                width: 0px ;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: rgb(37, 37, 37);
+                overflow-x: hidden;
+                transition: 0.5s;
+            }    
+            .closebtn{
+                font-size: 30px;
+                display:contents ;
+            }
+        
+        }      
+        /*Media Queries For Side Bar And Close Button*/
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+          }
+        
+        
+        /*CSS For Home Page*/
+        #intro{
+            position: absolute;
+            top: 35%;
+        }
+        .name p{
+            font-size: 4vw;
+            transition: 0.7s;
+            font-family: Georgia;
+        }
+        @media screen and (max-width: 650px){
+            .name p{
+                font-size: 10vw;
+                font-family: Georgia;
+            }
+        }
+        .multicolortext {
+            /*background-image: linear-gradient(to left, violet, green, rgb(0, 255, 255), yellow, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;*/
+            text-decoration-line: underline;
+            text-decoration-color: #FFD700;
+        }
+        .name{
+            color: white;
+        }
+        .surname{
+            color:#FFD700;
+        }
+        /*CSS For Home Page End*/ 
+
+        /*CSS For Blus Background*/
+        /*CSS For Blur Background End*/
+        .blur-background{
+            background-color: #ffffff10;
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            color:white;
+        }
+        
+    </style>
+     <title>SB-PORTFOLIO</title>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="container-fluid pt-5 pr-5 pl-5 image" id="image">
+            <a><img class="img" src="images/sbimg.png"></a>
+            <div class="overlay">Sanket Bhole</div>
+        </div>
+        <div class="nav flex-column" id="tab" role="">
+            <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="nav-link active pl-5" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="lnr lnr-home"> </i>  HOME</a>
+            <p  class="m-0 p-0"><hr class="m-0 p-0"></p>
+            
+            <a class="nav-link pl-5" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="false"><i class="lnr lnr-user"> </i>  ABOUT</a>
+            <p  class="m-0 p-0"><hr class="m-0 p-0"></p>
+            
+            <a class="nav-link pl-5" id="resume-tab" data-toggle="tab" href="#resume" role="tab" aria-controls="resume" aria-selected="false"><i class="lnr lnr-license">  </i>  RESUME</a>
+            <p  class="m-0 p-0"><hr class="m-0 p-0"></p>
+            
+            <a class="nav-link pl-5" id="portfolio-tab" data-toggle="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false"><i class="lnr lnr-briefcase"> </i> PORTFOLIO</a>
+            <p  class="m-0 p-0"><hr class="m-0 p-0"></p>
+            
+            <a class="nav-link pl-5" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="lnr lnr-phone-handset"> </i> CONTACT</a>
+            <p  class="m-0 p-0"><hr class="m-0 p-0"></p>
+          </div>
+    </div>
+    <div class="tab-content p-0" id="main">
+        <div class="tab-pane animated fadeIn show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="container"  id="intro">
+                <div class="row name">
+                    <div class="col-sm-12">
+                        <p>SANKET <span class="surname"> BHOLE</span></p>
+                    </div>    
+                    <div class="col-sm-12">
+                        <p><b>I Am  
+                        <span class="txt-rotate multicolortext" data-period="2000" data-rotate='["FRESHER.","WEB DEVELOPER.","CODER."]' ></span>
+                        </b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade blur-background" id="about" role="tabpanel" aria-labelledby="about-tab">
+            <div class="container" id="abt">
+                <div class="row p-5">
+                    <div class="col-sm-12 text-center"><h1>ABOUT</h1></div>
+                    <div class="col-sm-12 p-5"> 
+                        <h3>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Id qui rem laboriosam illo dicta exercitationem maxime, 
+                            corporis velit veniam quas quaerat consequuntur dolorem 
+                            necessitatibus nesciunt ratione nihil. Voluptatum, fugit blanditiis.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade blur-background" id="resume" role="tabpanel" aria-labelledby="resume-tab">
+            <div class="container" id="resum">
+                <div class="row p-5">
+                    <div class="col-sm-12 text-center"><h1>RESUME</h1></div>
+                    <div class="col-sm-12 p-5"> 
+                        <h3>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Id qui rem laboriosam illo dicta exercitationem maxime, 
+                            corporis velit veniam quas quaerat consequuntur dolorem 
+                            necessitatibus nesciunt ratione nihil. Voluptatum, fugit blanditiis.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade blur-background" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+            <div class="container" id="port">
+                <div class="row p-5">
+                    <div class="col-sm-12 text-center"><h1>PORTFOLIO</h1></div>
+                    <div class="col-sm-12 p-5"> 
+                        <h3>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Id qui rem laboriosam illo dicta exercitationem maxime, 
+                            corporis velit veniam quas quaerat consequuntur dolorem 
+                            necessitatibus nesciunt ratione nihil. Voluptatum, fugit blanditiis.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade blur-background" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="container" id="cont">
+                <div class="row p-5">
+                    <div class="col-sm-12 text-center"><h1>CONTACT</h1></div>
+                    <div class="col-sm-12 p-5"> 
+                        <h3>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Id qui rem laboriosam illo dicta exercitationem maxime, 
+                            corporis velit veniam quas quaerat consequuntur dolorem 
+                            necessitatibus nesciunt ratione nihil. Voluptatum, fugit blanditiis.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary san fade" onclick="openNav()">☰ Open</button>
+
+
+
+<script>
+    //Script For Text Rotation
+    var TxtRotate = function (el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+    
+    TxtRotate.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+    
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+    
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    
+        var that = this;
+        var delta = 300 - Math.random() * 300;
+    
+        if (this.isDeleting) { delta /= 2; }
+    
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+    
+        setTimeout(function () {
+            that.tick();
+        }, delta);
+    };
+    
+    window.onload = function () {
+        var elements = document.getElementsByClassName('txt-rotate');
+        for (var i = 0; i < elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-rotate');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+                new TxtRotate(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+        document.body.appendChild(css);
+    };
+    // Script For Text Rotation
+</script>
+
+
+<script>
+    // Funtions for Sidebar Opening And Closing
+    function openNav() {
+        document.getElementById("sidebar").style.width = "250px"; 
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    }
+
+
+    //Funcation Media Query with JavaScript (For Auto Opening Of Sidebar on Min Width)
+    function myFunctionx(x) {
+        if (x.matches) {
+            document.getElementById("sidebar").style.width = "250px";   
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+    }
+    
+    var x = window.matchMedia("(min-width: 650px)")
+    myFunctionx(x)
+    x.addListener(myFunctionx)
+
+
+    //Funcation Media Query with JavaScript (For Auto Closing Of Sidebar on Max Width)
+    function myFunctiony(y) {
+        if (y.matches) {
+            document.getElementById("sidebar").style.width = "0px";
+            document.getElementById("main").style.marginLeft = "0px";
+        }
+    }
+    
+    var y = window.matchMedia("(max-width: 650px)")
+    myFunctiony(y)
+    y.addListener(myFunctiony)
+
+    // Funtions End for Sidebar Opening And Closing
+</script>
+
+<script src="js/wow.js"></script>
+<script>
+   wow = new WOW({}).init();
+</script>
+</body>
+</html>
